@@ -30,6 +30,15 @@
   </head>
 
   <body>
+    <nav class="site-nav" aria-label="Sections">
+      <div class="site-nav-inner">
+        <a href="#journey">Journey</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#off-the-clock">Off the clock</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
     <main>
       <!-- ============ Hero ============ -->
       <header class="hero">
@@ -69,11 +78,11 @@
               <strong>Email</strong>
             </span>
           </a>
-          <a class="card" href="tel:+4">
+          <a class="card" href="mailto:laurentiu@maracineanu.com?subject=Call%20request">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3.5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
             <span class="card-text">
-              <small>Call me directly</small>
-              <strong>+40</strong>
+              <small>Number on request</small>
+              <strong>Phone</strong>
             </span>
           </a>
           <a class="card" href="https://github.com/zsmire" rel="me">
@@ -87,7 +96,7 @@
       </header>
 
       <!-- ============ Timeline ============ -->
-      <section class="timeline" aria-labelledby="timeline-title">
+      <section class="timeline" id="journey" aria-labelledby="timeline-title">
         <h2 id="timeline-title">The road so far</h2>
 
         <div class="timeline-layout">
@@ -271,7 +280,7 @@
       </section>
 
       <!-- ============ Skills ============ -->
-      <section class="skills" aria-labelledby="skills-title">
+      <section class="skills" id="skills" aria-labelledby="skills-title">
         <h2 id="skills-title">What I work with</h2>
         <dl>
           <div><dt>Architecture</dt><dd>TOGAF, C4, DDD, hexagonal architecture, event-driven design, microservices, EA governance</dd></div>
@@ -285,7 +294,7 @@
       </section>
 
       <!-- ============ Education ============ -->
-      <section class="education" aria-labelledby="edu-title">
+      <section class="education" id="education" aria-labelledby="edu-title">
         <h2 id="edu-title">Education &amp; credentials</h2>
         <ul class="edu-list">
           <li>
@@ -310,7 +319,7 @@
       </section>
 
       <!-- ============ Off the clock ============ -->
-      <section class="offclock" aria-labelledby="off-title">
+      <section class="offclock" id="off-the-clock" aria-labelledby="off-title">
         <h2 id="off-title">Off the clock</h2>
         <p>
           Basketball, tennis and kickboxing. Travel and food when I can.
@@ -319,7 +328,7 @@
       </section>
 
       <!-- ============ Footer ============ -->
-      <footer>
+      <footer id="contact">
         <p class="say-hello">
           Have a project or a role in mind?
           <a href="mailto:laurentiu@maracineanu.com">Say hello.</a>
@@ -409,6 +418,55 @@
     font-size: 1.0625rem;
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
+  }
+
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--rail);
+  }
+
+  .site-nav-inner {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 0.7rem clamp(1.25rem, 5vw, 2rem);
+    display: flex;
+    gap: 1.4rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .site-nav-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 34rem) {
+    .site-nav-inner {
+      justify-content: center;
+    }
+  }
+
+  .site-nav a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+  }
+
+  .site-nav a:hover,
+  .site-nav a:focus-visible {
+    color: var(--accent);
+  }
+
+  section[id],
+  footer[id] {
+    scroll-margin-top: 4rem;
   }
 
   main {
